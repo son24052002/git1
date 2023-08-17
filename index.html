@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoc VueJS</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>{{greeting}}</h1>
+        <!-- <p>{{date}}</p> -->
+        <h2>{{message}}</h2>
+        <button v-on:click="onclick">Nhan Vao </button>
+        <p>goi phuong thuc: {{onChangeGreeting()}}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            //option api
+            data(){
+                return{
+                    greeting: 'hello world',
+                    date: new Date(),
+                    message: 'Xin chào, Vue!',
+                    onclick: function() {
+                        alert('tuan');
+                    }
+                }
+            },
+
+            methods:{
+                onChangeGreeting(){
+                    this.greeting = "xin chao";
+                    return this.greeting;
+                }
+            }
+
+            
+
+        });
+        app.mount('#container');
+    </script>
+</body>
+</html>
